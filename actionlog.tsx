@@ -7,11 +7,13 @@ import startIcon from './assets/start.png';
 
 const LogItem = () => {
   return (
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+    <View style={{}}>
       {/* Display Image depending on action */}
-      <Image source={stopIcon} />
-      <Image source={startIcon} />
-      <Text>{/* Action type */}</Text>
+      <Image style={{width: 50, height: 50}} source={stopIcon} />
+      <Image style={{width: 50, height: 50}} source={startIcon} />
+
+      {/* Action type */}
+      <Text>Log action label</Text>
     </View>
   );
 };
@@ -24,7 +26,10 @@ const Actionlog = () => {
         {/* List with actions */}
         <LogItem />
       </View>
-      <Text>{0}</Text> {/* Display stopwatch seconds */}
+
+      {/* Display stopwatch seconds */}
+      <Text>{0}</Text>
+
       {/* Timer controls */}
       <View>
         <Button title="Start" />
