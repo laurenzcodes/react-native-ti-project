@@ -1,34 +1,38 @@
 /* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
+import {Button, Image, Text, View} from 'react-native';
 
-import {Text, View} from 'react-native';
-import styled from 'styled-components/native';
+import stopIcon from './assets/stop.png';
+import startIcon from './assets/start.png';
 
-const TestComponent: React.FC<{
-  data: any;
-}> = props => {
-  var count = 0;
+const LogItem = () => {
   return (
-    <View style={{flex: 1}}>
-      <Text style={componentStyles.text}>{count}</Text>
-      <IncreaseCounter onPress={() => count++}>
-        Increase counter
-      </IncreaseCounter>
-      <Text>{props.data.text}</Text>
+    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      {/* Display Image depending on action */}
+      <Image source={stopIcon} />
+      <Image source={startIcon} />
+      <Text>{/* Action type */}</Text>
     </View>
   );
 };
 
-const componentStyles = {
-  text: {
-    color: '#333',
-    fontSize: 12,
-  },
+const Actionlog = () => {
+  return (
+    <View style={{flex: 1}}>
+      <Text>Actionlog</Text>
+      <View>
+        {/* List with actions */}
+        <LogItem />
+      </View>
+      <Text>{0}</Text> {/* Display stopwatch seconds */}
+      {/* Timer controls */}
+      <View>
+        <Button title="Start" />
+        <Button title="Pause" />
+        <Button title="Reset" />
+      </View>
+    </View>
+  );
 };
-const IncreaseCounter = styled.TouchableOpacity`
-  background-color: #ff9500;
-  width: 100px;
-  height: 50px;
-`;
 
-export default TestComponent;
+export default Actionlog;
